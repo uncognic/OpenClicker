@@ -68,6 +68,13 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
             SetTextColor(hdcStatic, RGB(0, 0, 0)); 
             return (LRESULT)GetStockObject(NULL_BRUSH); 
         }
+        case WM_ERASEBKGND: {
+            HDC hdc = (HDC)wParam;
+            RECT rc;
+            GetClientRect(hwnd, &rc);
+            FillRect(hdc, &rc, (HBRUSH)(COLOR_WINDOW + 1));
+            return 1;
+        }
     }
     return DefWindowProc(hwnd, msg, wParam, lParam);
 }
