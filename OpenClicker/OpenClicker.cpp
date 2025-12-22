@@ -110,10 +110,16 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 
     HWND hwnd = CreateWindowEx(
         0,
-        L"OpenClicker", L"OpenClicker",
+        L"OpenClicker",
+        L"OpenClicker",
         WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX,
-        CW_USEDEFAULT, CW_USEDEFAULT, 200, 300,
-        nullptr, nullptr, hInst, nullptr
+        CW_USEDEFAULT, 
+        CW_USEDEFAULT, 
+        200, 300,
+        nullptr,
+        nullptr,
+        hInst,
+        nullptr
     );
 
 
@@ -130,8 +136,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
         nullptr
     );
     SendMessage(hwndLabel, WM_SETFONT, (WPARAM)hUIFont, TRUE);
-    SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_MAXIMIZEBOX);
-    SetWindowPos(hwnd, nullptr, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER | SWP_FRAMECHANGED);
+
 
     hwndEdit = CreateWindow(L"EDIT",
         L"50",
