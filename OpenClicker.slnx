@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="OpenClicker/OpenClicker.vcxproj" />
+  <Project Path="OpenClicker/OpenClicker.vcxproj" Id="8cbbb7ae-b943-4c77-8187-16a2f5d58a18" />
 </Solution>

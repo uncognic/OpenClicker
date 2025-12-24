@@ -10,6 +10,7 @@
 bool clicking = false;
 HWND hwndEdit;
 HWND hwndButton;
+HWND hwnd;
 HANDLE thread = nullptr;
 DWORD lastToggleTime = 0;
 const DWORD toggleCooldown = 1000;
@@ -38,6 +39,7 @@ void ToggleClicking()
 
     clicking = !clicking;
     SetWindowText(hwndButton, clicking ? L"Stop" : L"Start");
+    SetWindowText(hwnd, clicking ? L"OpenClicker (Running)" : L"OpenClicker (Stopped)");
     EnableWindow(hwndEdit, !clicking);
 
     if (clicking)
@@ -115,10 +117,10 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 
 
 
-    HWND hwnd = CreateWindowEx(
+    hwnd = CreateWindowEx(
         0,
         L"OpenClicker",
-        L"OpenClicker",
+        L"OpenClicker (Stopped)",
         WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX,
         CW_USEDEFAULT, 
         CW_USEDEFAULT, 
